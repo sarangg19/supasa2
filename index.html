@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Basic Webpage</title>
+    <style>
+        :root {
+            --bg:#f7f9fc; --card:#ffffff; --accent:#2563eb; --muted:#6b7280;
+            --radius:10px; font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0; background:var(--bg); color:#0f172a; line-height:1.45;
+            padding:32px;
+        }
+        .container{max-width:900px;margin:0 auto;}
+        header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
+        .brand{display:flex;align-items:center;gap:12px}
+        .logo{
+            width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);
+            display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700;
+            box-shadow:0 6px 18px rgba(37,99,235,0.12);
+        }
+        nav a{color:var(--muted);text-decoration:none;margin-left:12px;font-weight:600}
+        .hero{
+            background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent);
+            padding:28px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(15,23,42,0.06);
+            margin-bottom:20px;
+        }
+        h1{margin:0 0 8px;font-size:1.6rem}
+        p.lead{margin:0;color:var(--muted)}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+        .card{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 4px 12px rgba(2,6,23,0.04)}
+        footer{margin-top:28px;color:var(--muted);font-size:0.9rem;text-align:center}
+        button{
+            background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600;
+        }
+        @media (max-width:520px){body{padding:16px} .logo{width:40px;height:40px}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo">BG</div>
+                <div>
+                    <div style="font-weight:700">Basic Webpage</div>
+                    <div style="font-size:0.85rem;color:var(--muted)">A minimal starter template</div>
+                </div>
+            </div>
+            <nav aria-label="Main navigation">
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero" role="region" aria-labelledby="hero-title">
+                <h1 id="hero-title">Welcome</h1>
+                <p class="lead">This is a simple, responsive starting page you can edit and expand. Click the button to see a small demo.</p>
+                <div style="margin-top:12px">
+                    <button id="demoBtn" type="button">Show current time</button>
+                    <span id="time" style="margin-left:12px;color:var(--muted)"></span>
+                </div>
+            </section>
+
+            <section id="features">
+                <div class="grid">
+                    <div class="card">
+                        <h3 style="margin-top:0">Responsive</h3>
+                        <p style="margin:0;color:var(--muted)">Layouts adapt to different screen sizes using modern CSS.</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="margin-top:0">Accessible</h3>
+                        <p style="margin:0;color:var(--muted)">Semantic elements and ARIA landmarks for assistive tech.</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="margin-top:0">Customizable</h3>
+                        <p style="margin:0;color:var(--muted)">Edit styles, sections and scripts to suit your project.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" style="margin-top:18px">
+                <div class="card">
+                    <h2 style="margin-top:0">About this page</h2>
+                    <p style="color:var(--muted)">Use this file as a starting point for small projects, demos, or prototypes. Keep structure semantic and styles scoped for easy maintenance.</p>
+                </div>
+            </section>
+
+            <section id="contact" style="margin-top:18px">
+                <div class="card">
+                    <h2 style="margin-top:0">Contact</h2>
+                    <form onsubmit="event.preventDefault(); alert('Form submitted (demo)');">
+                        <label style="display:block;margin-bottom:8px">
+                            <span style="display:block;color:var(--muted)">Email</span>
+                            <input type="email" required placeholder="you@example.com" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid #e6eef8" />
+                        </label>
+                        <label style="display:block;margin-bottom:8px">
+                            <span style="display:block;color:var(--muted)">Message</span>
+                            <textarea required rows="4" placeholder="Say hello" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid #e6eef8"></textarea>
+                        </label>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>Made with care • <span id="year"></span></div>
+        </footer>
+    </div>
+
+    <script>
+        // small interactive bits
+        document.getElementById('demoBtn').addEventListener('click', function () {
+            const now = new Date();
+            document.getElementById('time').textContent = now.toLocaleString();
+        });
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html></div></section>
